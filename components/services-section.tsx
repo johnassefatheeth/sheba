@@ -1,6 +1,6 @@
 "use client"
 
-import { Code2, Smartphone, Cloud, Brain, Shield, Palette } from "lucide-react"
+import { Brain, Cloud, Code2, Palette, PenTool, Smartphone } from "lucide-react"
 
 const services = [
   {
@@ -24,9 +24,9 @@ const services = [
     description: "Machine learning pipelines, analytics, and predictive models that drive decisions.",
   },
   {
-    icon: Shield,
-    title: "Cybersecurity",
-    description: "Risk assessment, system hardening, and continuous monitoring for peace of mind.",
+    icon: PenTool,
+    title: "Logo & Branding",
+    description: "Identity systems, logos, and brand kits that keep you memorable and consistent.",
   },
   {
     icon: Palette,

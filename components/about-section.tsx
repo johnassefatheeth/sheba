@@ -35,14 +35,12 @@ export default function AboutSection() {
         <div className="animate-section grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div>
             <p className="text-lg text-[#AFAFAF] leading-relaxed mb-6">
-              Sheba Labs is a technology company based in Ethiopia, combining modern engineering practices with
-              thoughtful design. We believe technology becomes meaningful when it solves real problems with precision
-              and wisdom.
-            </p>
+              Sheba Labs is a technology company based in Ethiopia, inspired by the legacy of Queen Sheba — a leader who traveled in search of wisdom from King Solomon. Her curiosity, courage, and pursuit of understanding guide our own commitment to building meaningful, intelligent technology.             </p>
             <p className="text-lg text-[#AFAFAF] leading-relaxed">
-              Our team brings together expertise in software engineering, cloud architecture, and user experience to
-              create digital products that make a lasting impact.
-            </p>
+              We combine modern engineering with thoughtful design to create solutions that solve real problems with clarity and purpose. With expertise in software engineering, cloud architecture, and user experience, our team helps turn ideas into impactful digital products shaped by wisdom, innovation, and Ethiopian heritage.            </p>
+            {/* <p className="text-lg text-[#AFAFAF] leading-relaxed">
+              Our team brings together deep expertise in software engineering, cloud architecture, and user experience to craft digital solutions that leave a lasting impact. Guided by Ethiopia’s heritage of curiosity and innovation, we strive to help our clients turn bold ideas into reality — with the same spirit of exploration and excellence that defined the Queen of Sheba’s journey.
+            </p> */}
           </div>
 
           {/* Stats */}

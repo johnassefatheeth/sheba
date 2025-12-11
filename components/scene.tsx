@@ -312,21 +312,20 @@ export default function ThreeScene() {
         if (materialAltRef.current) {
           materialAltRef.current.opacity = materialRef.current.opacity
         }
-        const rotY = elapsedTime * 0.08
+        const rotY = Math.sin(elapsedTime * 0.5) * THREE.MathUtils.degToRad(30)
         particlesRef.current?.rotation.set(0, rotY, 0)
         particlesAltRef.current?.rotation.set(0, rotY, 0)
       }
 
-      // Subtle camera sway on time for perceived motion even without scrolling
-      camera.position.z = 30 + Math.cos(elapsedTime * 0.2) * 1.5
+      const baseZ = 30 + Math.cos(elapsedTime * 0.2) * 1.5
+      const scrollZ = baseZ - scrollY * 0.005
+      const returnBlend = scrollProgress > 0.8 ? Math.min(1, (scrollProgress - 0.8) / 0.2) : 0
+      const cameraPullback = THREE.MathUtils.lerp(0, 6, returnBlend)
 
-      // Pointer-driven parallax
       pointerCurrentRef.current.lerp(pointerTargetRef.current, 0.06)
       camera.position.x = pointerCurrentRef.current.x * 3
       camera.position.y = pointerCurrentRef.current.y * 2
-
-      // Scroll-linked camera depth
-      camera.position.z = 30 - scrollY * 0.005
+      camera.position.z = scrollZ + cameraPullback
 
       renderer.render(scene, camera)
     }

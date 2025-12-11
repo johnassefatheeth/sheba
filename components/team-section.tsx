@@ -2,27 +2,27 @@
 
 const team = [
   {
-    name: "Amanuel Tekle",
-    role: "Founder & CEO",
-    specialty: "Product Strategy",
+    name: "John Assefa",
+    role: "CEO",
+    specialty: "Vision & Strategy",
     image: "/professional-ethiopian-man-portrait.jpg",
   },
   {
-    name: "Sara Hailu",
+    name: "Tsegaye Talgnget",
     role: "CTO",
-    specialty: "Cloud Architecture",
+    specialty: "Cloud & Platform",
     image: "/professional-ethiopian-woman-portrait.jpg",
   },
   {
-    name: "Daniel Assefa",
-    role: "Lead Engineer",
-    specialty: "Full-Stack Development",
+    name: "Dagim Yoseph",
+    role: "Marketing Lead",
+    specialty: "Brand Growth",
     image: "/professional-african-developer-portrait.jpg",
   },
   {
-    name: "Meron Tadesse",
-    role: "Design Director",
-    specialty: "UI/UX Design",
+    name: "Abiy Shiferaw",
+    role: "UI/UX",
+    specialty: "Product Experience",
     image: "/professional-african-woman-designer-portrait.jpg",
   },
 ]
