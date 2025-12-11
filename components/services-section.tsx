@@ -15,8 +15,8 @@ const services = [
   },
   {
     icon: Cloud,
-    title: "Cloud & DevOps Engineering",
-    description: "CI/CD pipelines, scaling strategies, and automation for robust infrastructure.",
+    title: "IT & Cloud Consultation",
+    description: "Architecture reviews, CI/CD blueprints, scaling strategies, and automation roadmaps tuned to your stack.",
   },
   {
     icon: Brain,
