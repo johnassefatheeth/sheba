@@ -94,9 +94,9 @@ export default function RootLayout({
     contactPoint: [
       {
         "@type": "ContactPoint",
-        contactType: "sales",
-        email: "hello@shebalabs.com",
-        telephone: "+251911234567",
+        contactType: "contact",
+        email: "contact@sheba-labs.com",
+        telephone: "+251971816461",
         areaServed: "ET",
         availableLanguage: ["en"],
       },

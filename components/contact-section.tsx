@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 
 export default function ContactSection() {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,10 +14,35 @@ export default function ContactSection() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log(formData)
+    setStatus("submitting")
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "9868d2cd-1835-4de2-9075-5e4d9dfa7644",
+          ...formData,
+        }),
+      })
+
+      const result = await response.json()
+      if (result.success) {
+        setStatus("success")
+        setFormData({ name: "", email: "", company: "", message: "" })
+        setTimeout(() => setStatus("idle"), 5000)
+      } else {
+        setStatus("error")
+      }
+    } catch (error) {
+      console.error("Submission error:", error)
+      setStatus("error")
+    }
   }
 
   return (
@@ -46,6 +72,7 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 bg-[#111111] border border-[#D4AF37]/20 rounded-lg text-white placeholder-[#AFAFAF]/50 focus:outline-none focus:border-[#D4AF37] transition-colors"
                 placeholder="Your name"
+                disabled={status === "submitting"}
               />
             </div>
 
@@ -61,6 +88,7 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 bg-[#111111] border border-[#D4AF37]/20 rounded-lg text-white placeholder-[#AFAFAF]/50 focus:outline-none focus:border-[#D4AF37] transition-colors"
                 placeholder="your@email.com"
+                disabled={status === "submitting"}
               />
             </div>
 
@@ -75,6 +103,7 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                 className="w-full px-4 py-3 bg-[#111111] border border-[#D4AF37]/20 rounded-lg text-white placeholder-[#AFAFAF]/50 focus:outline-none focus:border-[#D4AF37] transition-colors"
                 placeholder="Your company"
+                disabled={status === "submitting"}
               />
             </div>
 
@@ -90,17 +119,32 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 bg-[#111111] border border-[#D4AF37]/20 rounded-lg text-white placeholder-[#AFAFAF]/50 focus:outline-none focus:border-[#D4AF37] transition-colors resize-none"
                 placeholder="Tell us about your project..."
+                disabled={status === "submitting"}
               />
             </div>
 
             <button
               type="submit"
-              className="group w-full px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#E7B95C] text-[#0C0C0C] font-semibold rounded-lg hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all flex items-center justify-center gap-2"
+              disabled={status === "submitting"}
+              className={`group w-full px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#E7B95C] text-[#0C0C0C] font-semibold rounded-lg transition-all flex items-center justify-center gap-2 ${status === "submitting" ? "opacity-70 cursor-not-allowed" : "hover:shadow-xl hover:shadow-[#D4AF37]/30"
+                }`}
             >
-              Send Message
-              <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              {status === "submitting" ? "Sending..." : "Send Message"}
+              <Send className={`w-5 h-5 ${status !== "submitting" ? "group-hover:translate-x-1" : ""} transition-transform`} />
             </button>
+
+            {status === "success" && (
+              <p className="text-green-500 text-center font-medium animate-in fade-in slide-in-from-top-2">
+                Success! Your message has been sent.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-500 text-center font-medium animate-in fade-in slide-in-from-top-2">
+                Something went wrong. Please try again.
+              </p>
+            )}
           </form>
+
 
           {/* Contact Info */}
           <div className="lg:pl-12">
@@ -119,8 +163,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[#AFAFAF] text-sm mb-1">Email</p>
-                  <a href="mailto:hello@shebalabs.com" className="text-white hover:text-[#D4AF37] transition-colors">
-                    hello@shebalabs.com
+                  <a href="mailto:contact@sheba-labs.com" className="text-white hover:text-[#D4AF37] transition-colors">
+                    contact@sheba-labs.com
                   </a>
                 </div>
               </div>
@@ -131,7 +175,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-[#AFAFAF] text-sm mb-1">Phone</p>
-                  <a href="tel:+251911234567" className="text-white hover:text-[#D4AF37] transition-colors">
+                  <a href="tel:+251971916461" className="text-white hover:text-[#D4AF37] transition-colors">
                     +251 911 234 567
                   </a>
                 </div>
