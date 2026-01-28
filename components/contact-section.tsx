@@ -176,7 +176,7 @@ export default function ContactSection() {
                 <div>
                   <p className="text-[#AFAFAF] text-sm mb-1">Phone</p>
                   <a href="tel:+251971916461" className="text-white hover:text-[#D4AF37] transition-colors">
-                    +251 911 234 567
+                    +251 971 916 461
                   </a>
                 </div>
               </div>
