@@ -7,37 +7,37 @@ const projects = [
     title: "FinTech Platform",
     category: "Web Application",
     description: "A comprehensive financial management system for Ethiopian businesses.",
-    image: "/fintech-dashboard-dark-gold-theme.jpg",
+    image: "/img/fintech.png",
   },
   {
     title: "Healthcare App",
     category: "Mobile Application",
     description: "Telemedicine solution connecting patients with healthcare providers.",
-    image: "/healthcare-mobile-app-dark-gold-theme.jpg",
+    image: "/img/mobile.png",
   },
   {
     title: "E-Commerce Suite",
     category: "Full Stack",
     description: "Scalable marketplace platform with integrated payment systems.",
-    image: "/ecommerce-platform-dark-gold-theme.jpg",
+    image: "/img/full stack.png",
   },
   {
     title: "Logistics Tracker",
     category: "Enterprise System",
     description: "Real-time fleet management and delivery optimization system.",
-    image: "/logistics-tracking-dashboard-dark-gold-theme.jpg",
+    image: "/img/enterprize.png",
   },
   {
     title: "EdTech Platform",
     category: "Web Application",
     description: "Online learning platform with live classes and progress tracking.",
-    image: "/education-platform-dark-gold-theme.jpg",
+    image: "/img/web-app.png",
   },
   {
     title: "AI Analytics",
     category: "Data Solution",
     description: "Predictive analytics dashboard for business intelligence.",
-    image: "/ai-analytics-dashboard-dark-gold-theme.jpg",
+    image: "/img/AI.png",
   },
 ]
 
