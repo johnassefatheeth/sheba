@@ -1,6 +1,6 @@
 {
     "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "sheba-portfolio",
+    "name": "sheba",
     "compatibility_date": "2026-01-03",
     "assets": {
         "directory": "./out"
