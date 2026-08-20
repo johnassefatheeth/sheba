@@ -118,6 +118,8 @@ export default function RootLayout({
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationJsonLd, websiteJsonLd]) }}
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6655112589864788"
+     crossOrigin="anonymous"></script>
         <meta name="apple-mobile-web-app-title" content="Sheba Labs" />
       </head>
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased bg-[#0C0C0C]`}>
